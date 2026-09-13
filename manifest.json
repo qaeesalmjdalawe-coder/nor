@@ -1,0 +1,39 @@
+{
+  "name": "نور | المنصة الإسلامية المتكاملة",
+  "short_name": "نور",
+  "description": "تطبيق إسلامي متكامل يجمع القرآن والأذكار والأحاديث وأسماء الله الحسنى",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0f1a",
+  "theme_color": "#0a0f1a",
+  "lang": "ar",
+  "dir": "rtl",
+  "categories": [
+    "lifestyle",
+    "education",
+    "books"
+  ],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "id": "./",
+  "prefer_related_applications": false,
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "browser"
+  ]
+}

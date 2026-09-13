@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0d1119">
+    <title>نور | المنصة الإسلامية المتكاملة</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+<style id="noor-responsive">
+html,body{width:100%;max-width:100%;overflow-x:hidden}img,video,canvas,svg{max-width:100%;height:auto}button,input,select,textarea{max-width:100%;font:inherit;box-sizing:border-box}
+.noor-actions{max-width:calc(100vw - 16px);box-sizing:border-box;flex-wrap:nowrap}
+.grid,.cards,.card-grid,.features,.items,.surah-grid,.reader-grid{grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))}
+@media(max-width:700px){.grid,.cards,.card-grid,.features,.items,.surah-grid,.reader-grid{grid-template-columns:1fr!important}.row,.flex-row{flex-wrap:wrap!important}.container,.wrapper,.content,.main-content,.page-content,.section,.hero,header,nav,main,footer{max-width:100%}}
+@media(max-width:600px){.noor-actions{top:max(8px,env(safe-area-inset-top));left:auto;right:max(8px,env(safe-area-inset-right));gap:6px}.noor-action-btn{width:44px!important;height:44px!important;min-width:44px!important;padding:0!important;border-radius:13px!important;justify-content:center;flex:0 0 44px}.noor-action-btn span:last-child{display:none!important}.noor-action-icon{font-size:18px!important}.modal,.dialog,.popup{width:calc(100vw - 24px)!important;max-width:calc(100vw - 24px)!important;margin:12px auto!important}}
+@media(max-width:360px){.noor-actions{gap:4px}.noor-action-btn{width:40px!important;height:40px!important;min-width:40px!important;flex-basis:40px;border-radius:11px!important}.noor-action-icon{font-size:16px!important}}
+@media(max-height:500px) and (orientation:landscape){.noor-actions{top:6px}.noor-action-btn{height:38px!important;min-height:38px!important}}
+</style>
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-mark">ن</div>
+            <div class="brand-text">
+                <strong>نور</strong>
+                <small>منصتك الإسلامية</small>
+            </div>
+        </div>
+        <div class="top-actions">
+            <button class="icon-btn" id="notificationBtnTop" title="الإشعارات" aria-label="الإشعارات">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M10 21h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <button class="icon-btn" id="installAppBtn" title="تثبيت نور على سطح المكتب" aria-label="تثبيت نور على سطح المكتب">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12 3v11" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+                    <path d="m7.5 10.5 4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 20h14" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <button class="icon-btn" id="themeToggle" title="تبديل الوضع">
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="currentColor"/>
+                </svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="4" fill="currentColor"/>
+                    <path d="M12 2V4M12 20V22M4.93 4.93L6.34 6.34M17.66 17.66L19.07 19.07M2 12H4M20 12H22M4.93 19.07L6.34 17.66M17.66 6.34L19.07 4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <nav class="main-nav" id="mainNav">
+        <button class="nav-btn active" data-go="homeSection">
+            <span class="nav-label">الرئيسية</span>
+        </button>
+        <button class="nav-btn" data-go="quranSection">
+            <span class="nav-label">القرآن</span>
+        </button>
+        <button class="nav-btn" data-go="prayerSection">
+            <span class="nav-label">الصلاة</span>
+        </button>
+        <button class="nav-btn" data-go="azkarSection">
+            <span class="nav-label">الأذكار</span>
+        </button>
+        <button class="nav-btn" data-go="hadithSection">
+            <span class="nav-label">الأحاديث</span>
+        </button>
+        <button class="nav-btn" data-go="asmaSection">
+            <span class="nav-label">أسماء الله</span>
+        </button>
+        <button class="nav-btn" data-go="favoritesSection">
+            <span class="nav-label">المحفوظات</span>
+        </button>
+        <button class="nav-btn" data-go="calendarSection">
+            <span class="nav-label">التقويم</span>
+        </button>
+        <button class="nav-btn" data-go="settingsSection">
+            <span class="nav-label">الإعدادات</span>
+        </button>
+    </nav>
+
+    <main class="app-shell">
+
+        <!-- الرئيسية -->
+        <section class="section-page active-page" id="homeSection">
+            <div class="hero">
+                <div class="hero-content">
+                    <span class="eyebrow">أهلاً بك في نور</span>
+                    <h1>تلاوتك، أذكارك،<br>وعبادتك في منصة واحدة</h1>
+                    <p>تطبيق إسلامي متكامل يجمع كل ما تحتاجه من قرآن، أذكار، أحاديث، وأسماء الله الحسنى.</p>
+                    <div class="hero-actions">
+                        <button class="primary-btn" data-go="quranSection">ابدأ التلاوة</button>
+                        <button class="secondary-btn" data-go="prayerSection">مواقيت الصلاة</button>
+                        <button class="secondary-btn" data-go="azkarSection">الأذكار</button>
+                    </div>
+                </div>
+                <div class="next-card">
+                    <span>الصلاة القادمة</span>
+                    <strong id="nextPrayer">جاري الحساب…</strong>
+                    <small id="prayerStatus">اختر دولتك</small>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card" data-go="quranSection">
+                    <strong>114</strong>
+                    <small>سورة</small>
+                </div>
+                <div class="stat-card" data-go="hadithSection">
+                    <strong id="hadithCount">15</strong>
+                    <small>حديث</small>
+                </div>
+                <div class="stat-card" data-go="asmaSection">
+                    <strong id="asmaCount">99</strong>
+                    <small>اسم لله</small>
+                </div>
+                <div class="stat-card" data-go="favoritesSection">
+                    <strong id="favCount">0</strong>
+                    <small>محفوظة</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- القرآن -->
+        <section class="section-page" id="quranSection">
+            <div class="page-head">
+                <div>
+                    <span class="eyebrow">القرآن الكريم</span>
+                    <h2>المصحف الشريف</h2>
+                    <p>اختر السورة لقراءتها أو حفظها</p>
+                </div>
+                <button class="secondary-btn-light" id="openLastSurah">متابعة القراءة</button>
+            </div>
+            <div class="search-wrap">
+                <input id="quranSearch" class="search-input" placeholder="ابحث عن اسم السورة أو رقمها…">
+            </div>
+            <div id="surahList" class="surah-list"></div>
+        </section>
+
+        <!-- القارئ -->
+        <section class="section-page" id="readerSection">
+            <div class="page-head">
+                <div>
+                    <span class="eyebrow">التلاوة</span>
+                    <h2 id="readerTitle">الفاتحة</h2>
+                    <p id="readerMeta">سورة رقم 1</p>
+                </div>
+                <div class="row-actions">
+                    <button class="secondary-btn-light" id="readerBack">العودة للسور</button>
+                    <button class="secondary-btn-light" id="viewModeToggle">عرض الصفحة</button>
+                </div>
+            </div>
+            <div class="quran-controls">
+                <div class="control-card">
+                    <label>اختر القارئ</label>
+                    <select id="reciterSelect" class="select-input">
+                        <option value="fixed-yasser">ياسر الدوسري</option>
+                        <option value="fixed-afasy">مشاري العفاسي</option>
+                        <option value="fixed-luhaidan">محمد اللحيدان</option>
+                        <option value="fixed-islam">إسلام صبحي</option>
+                        <option value="fixed-sudais">عبد الرحمن السديس</option>
+                        <option value="fixed-muaiqly">ماهر المعيقلي</option>
+                        <option value="fixed-husary">محمود خليل الحصري</option>
+                    </select>
+                </div>
+                <div class="control-card">
+                    <label>تلاوة السورة</label>
+                    <audio id="quranAudio" controls preload="auto"></audio>
+                    <button class="primary-btn" id="playAudioBtn">تشغيل التلاوة</button>
+                    <small id="audioStatus">اختر قارئاً ثم اضغط تشغيل</small>
+                </div>
+            </div>
+            <div id="readerVerses" class="reader-verses"></div>
+        </section>
+
+        <!-- الصلاة -->
+        <section class="section-page" id="prayerSection">
+            <div class="page-head">
+                <div>
+                    <span class="eyebrow">العبادات</span>
+                    <h2>مواقيت الصلاة</h2>
+                    <p>اختر دولتك لعرض المواقيت</p>
+                </div>
+                <button class="primary-btn" id="useLocation">تحديد موقعي</button>
+            </div>
+            <div class="location-card">
+                <div class="location-info">
+                    <strong id="locationText">عمّان، الأردن</strong>
+                    <small>الموقع المختار</small>
+                </div>
+                <div class="location-controls">
+                    <select id="countrySelect" class="select-input"></select>
+                </div>
+            </div>
+            <div class="prayer-grid" id="prayerTimes"></div>
+            <div class="countdown-card">
+                <span>الوقت المتبقي للصلاة القادمة</span>
+                <strong id="nextPrayerLarge">—</strong>
+            </div>
+            <div class="setting-row">
+                <div><strong>منبه الصلاة</strong><small>تنبيه عند دخول وقت الصلاة</small></div>
+                <label class="switch"><input type="checkbox" id="alarmToggle"><span></span></label>
+            </div>
+        </section>
+
+        <!-- الأذكار -->
+        <section class="section-page" id="azkarSection">
+            <div class="page-head">
+                <div>
+                    <span class="eyebrow">الذكر</span>
+                    <h2>الأذكار والأدعية</h2>
+                    <p>اختر القسم المناسب</p>
+                </div>
+            </div>
+            <div class="tabs" id="azkarTabs">
+                <button class="tab active" data-zekr="morning">أذكار الصباح</button>
+                <button class="tab" data-zekr="evening">أذكار المساء</button>
+                <button class="tab" data-zekr="sleep">أذكار النوم</button>
+                <button class="tab" data-zekr="dua">أدعية عامة</button>
+                <button class="tab" data-zekr="quran">أدعية قرآنية</button>
+            </div>
+            <div id="azkarList" class="azkar-list"></div>
+        </section>
+
+        <!-- الأحاديث -->
+        <section class="section-page" id="hadithSection">
+            <div class="page-head">
+                <div>
+                    <span class="eyebrow">السنة النبوية</span>
+                    <h2>الأحاديث الشريفة</h2>
+                    <p>من كلام خير البشر ﷺ</p>
+                </div>
+            </div>
+            <div id="hadithList" class="hadith-list"></div>
+        </section>
+
+        <!-- أسماء الله -->
+        <section class="section-page" id="asmaSection">
+            <div class="page-head">
+                <div>
+                    <span class="eyebrow">الجمال الإلهي</span>
+                    <h2>أسماء الله الحسنى</h2>
+                    <p>لِلَّهِ الْأَسْمَاءُ الْحُسْنَىٰ فَادْعُوهُ بِهَا</p>
+                </div>
+            </div>
+            <div class="asma-grid" id="asmaGrid"></div>
+        </section>
+
+        <!-- المحفوظات -->
+        <section class="section-page" id="favoritesSection">
+            <div class="page-head">
+                <div>
+                    <span class="eyebrow">المكتبة الشخصية</span>
+                    <h2>السور المحفوظة</h2>
+                    <p>جميع السور التي حفظتها للقراءة والاستماع</p>
+                </div>
+                <button class="danger-btn" id="clearFavorites">مسح الكل</button>
+            </div>
+            <div id="favoritesList" class="favorites-list"></div>
+        </section>
+
+        <!-- التقويم -->
+        <section class="section-page" id="calendarSection">
+            <div class="page-head">
+                <div>
+                    <span class="eyebrow">التاريخ</span>
+                    <h2>التقويم الهجري والميلادي</h2>
+                </div>
+            </div>
+            <div class="calendar-card">
+                <div><span>الميلادي</span><strong id="gregorianDate">—</strong></div>
+                <div><span>الهجري</span><strong id="hijriDate">—</strong></div>
+            </div>
+        </section>
+
+        <!-- الإعدادات -->
+        <section class="section-page" id="settingsSection">
+            <div class="page-head">
+                <div>
+                    <span class="eyebrow">التخصيص</span>
+                    <h2>الإعدادات</h2>
+                </div>
+            </div>
+            <div class="settings-list">
+                <div class="setting-row">
+                    <div><strong>الوضع الليلي</strong><small>تغيير مظهر التطبيق</small></div>
+                    <label class="switch"><input type="checkbox" id="themeToggle2"><span></span></label>
+                </div>
+                <div class="setting-row">
+                    <div><strong>الإشعارات</strong><small>تفعيل الإشعارات</small></div>
+                    <button class="secondary-btn-light" id="notificationBtn">تفعيل</button>
+                </div>
+                <div class="setting-row">
+                    <div><strong>مسح البيانات</strong><small>حذف جميع البيانات المحفوظة</small></div>
+                    <button class="danger-btn" id="clearData">مسح</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="toast" id="toast"></div>
+    <script src="app.js"></script>
+</body>
+</html>
