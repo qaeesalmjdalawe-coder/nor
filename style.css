@@ -11,47 +11,48 @@
     --gold-dark: #a88b46;
     --gold-glow: rgba(201, 169, 97, 0.3);
     --gold-glow-soft: rgba(201, 169, 97, 0.15);
-    
+
     /* 🌤️ السماوي */
     --sky: #7a9ab5;
     --sky-light: #9db8ce;
     --sky-dark: #5a7a95;
     --sky-glow: rgba(122, 154, 181, 0.3);
-    
+
     /* 🏙️ السكني - غامق */
     --steel: #1a1f2b;
     --steel-light: #252b3a;
     --steel-dark: #0f1319;
-    
+
     /* الخلفيات */
     --bg: #0d1119;
-    --bg-gradient: radial-gradient(circle at 15% 10%, rgba(201, 169, 97, 0.06) 0%, transparent 45%),
-                   radial-gradient(circle at 85% 90%, rgba(122, 154, 181, 0.05) 0%, transparent 45%),
-                   linear-gradient(180deg, #0d1119 0%, #131824 100%);
+    --bg-gradient:
+        radial-gradient(circle at 15% 10%, rgba(201, 169, 97, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 85% 90%, rgba(122, 154, 181, 0.05) 0%, transparent 45%),
+        linear-gradient(180deg, #0d1119 0%, #131824 100%);
     --card: #1a1f2b;
     --card-hover: #222838;
     --card-elevated: #252b3a;
-    
+
     /* النصوص */
     --text: #e8ecf2;
     --text-light: #b8c0cf;
     --muted: #808b9c;
     --muted-dark: #5a6474;
-    
+
     /* الحدود */
     --border: #2a3142;
     --border-light: #3a4255;
-    
+
     /* الظلال */
     --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
     --shadow-hover: 0 10px 32px rgba(0, 0, 0, 0.45);
     --shadow-soft: 0 3px 16px rgba(0, 0, 0, 0.2);
-    
+
     /* الأبعاد */
     --radius: 16px;
     --radius-sm: 12px;
     --radius-lg: 22px;
-    
+
     /* الانتقالات */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -63,32 +64,33 @@ body.light {
     --gold-dark: #8a6f1f;
     --gold-glow: rgba(184, 148, 44, 0.25);
     --gold-glow-soft: rgba(184, 148, 44, 0.12);
-    
+
     --sky: #5b7fa8;
     --sky-light: #7b9fc5;
     --sky-dark: #436687;
     --sky-glow: rgba(91, 127, 168, 0.25);
-    
+
     --steel: #3d4452;
     --steel-light: #555d6e;
     --steel-dark: #2a3038;
-    
+
     --bg: #f5f7fa;
-    --bg-gradient: radial-gradient(circle at 15% 10%, rgba(184, 148, 44, 0.05) 0%, transparent 45%),
-                   radial-gradient(circle at 85% 90%, rgba(91, 127, 168, 0.05) 0%, transparent 45%),
-                   linear-gradient(180deg, #f5f7fa 0%, #eef1f6 100%);
+    --bg-gradient:
+        radial-gradient(circle at 15% 10%, rgba(184, 148, 44, 0.05) 0%, transparent 45%),
+        radial-gradient(circle at 85% 90%, rgba(91, 127, 168, 0.05) 0%, transparent 45%),
+        linear-gradient(180deg, #f5f7fa 0%, #eef1f6 100%);
     --card: #ffffff;
     --card-hover: #fafbfc;
     --card-elevated: #ffffff;
-    
+
     --text: #2a3142;
     --text-light: #4a5568;
     --muted: #7a8394;
     --muted-dark: #a0a8b5;
-    
+
     --border: #dde3ea;
     --border-light: #c9d1dc;
-    
+
     --shadow: 0 4px 16px rgba(42, 49, 66, 0.06);
     --shadow-hover: 0 10px 32px rgba(42, 49, 66, 0.1);
     --shadow-soft: 0 2px 10px rgba(42, 49, 66, 0.05);
@@ -170,7 +172,12 @@ body.light .topbar {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 70%
+    );
     transform: translateX(-100%);
     transition: transform 0.7s ease;
 }
@@ -241,13 +248,14 @@ body.light .brand strong {
     transition: var(--transition);
 }
 
-/* أزرار الإشعارات والتحميل بجانب زر القمر */
-#notificationBtnTop, #installAppBtn {
+#notificationBtnTop,
+#installAppBtn {
     display: grid;
     place-items: center;
 }
 
-#notificationBtnTop svg, #installAppBtn svg {
+#notificationBtnTop svg,
+#installAppBtn svg {
     width: 19px;
     height: 19px;
 }
@@ -261,14 +269,28 @@ body.light .brand strong {
     color: var(--gold);
 }
 
-.icon-moon { display: block; }
-.icon-sun { display: none; }
+#installAppBtn[hidden] {
+    display: none !important;
+}
 
-body.light .icon-moon { display: none; }
-body.light .icon-sun { display: block; }
+.icon-moon {
+    display: block;
+}
+
+.icon-sun {
+    display: none;
+}
+
+body.light .icon-moon {
+    display: none;
+}
+
+body.light .icon-sun {
+    display: block;
+}
 
 /* ============================================
-   شريط التنقل - متوسط ومتوسط
+   شريط التنقل
    ============================================ */
 .main-nav {
     display: flex;
@@ -323,7 +345,12 @@ body.light .main-nav {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.08), transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(201, 169, 97, 0.08),
+        transparent
+    );
     transition: left 0.6s ease;
 }
 
@@ -340,11 +367,17 @@ body.light .main-nav {
 }
 
 .nav-btn.active {
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+    background: linear-gradient(
+        135deg,
+        var(--gold-dark),
+        var(--gold),
+        var(--gold-light)
+    );
     color: var(--steel-dark);
     border-color: var(--gold-light);
-    box-shadow: 0 6px 20px var(--gold-glow), 
-                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    box-shadow:
+        0 6px 20px var(--gold-glow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
     font-weight: 900;
 }
@@ -383,15 +416,27 @@ body.light .main-nav {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ============================================
    Hero
    ============================================ */
 .hero {
-    background: linear-gradient(145deg, #0f1319 0%, #1a1f2b 50%, #152535 100%);
+    background: linear-gradient(
+        145deg,
+        #0f1319 0%,
+        #1a1f2b 50%,
+        #152535 100%
+    );
     border: 1.5px solid var(--border);
     border-radius: 22px;
     padding: 32px 36px;
@@ -400,17 +445,24 @@ body.light .main-nav {
     gap: 26px;
     align-items: center;
     color: #fff;
-    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.45),
-                inset 0 1px 0 rgba(201, 169, 97, 0.1);
+    box-shadow:
+        0 16px 44px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(201, 169, 97, 0.1);
     position: relative;
     overflow: hidden;
     transition: var(--transition);
 }
 
 body.light .hero {
-    background: linear-gradient(145deg, #e8eef5 0%, #d9e3ed 50%, #cddae5 100%);
-    box-shadow: 0 16px 44px rgba(91, 127, 168, 0.12),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    background: linear-gradient(
+        145deg,
+        #e8eef5 0%,
+        #d9e3ed 50%,
+        #cddae5 100%
+    );
+    box-shadow:
+        0 16px 44px rgba(91, 127, 168, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .hero::before {
@@ -419,7 +471,11 @@ body.light .hero {
     width: 380px;
     height: 380px;
     border-radius: 50%;
-    background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+    background: radial-gradient(
+        circle,
+        var(--gold-glow) 0%,
+        transparent 70%
+    );
     right: -110px;
     top: -150px;
     pointer-events: none;
@@ -427,8 +483,16 @@ body.light .hero {
 }
 
 @keyframes pulseGlow {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.08); }
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scale(1.08);
+    }
 }
 
 .hero::after {
@@ -496,7 +560,12 @@ body.light .eyebrow {
    الأزرار
    ============================================ */
 .primary-btn {
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+    background: linear-gradient(
+        135deg,
+        var(--gold-dark),
+        var(--gold),
+        var(--gold-light)
+    );
     border: 1px solid var(--gold-light);
     padding: 10px 20px;
     border-radius: 11px;
@@ -504,8 +573,9 @@ body.light .eyebrow {
     color: var(--steel-dark);
     cursor: pointer;
     transition: var(--transition-bounce);
-    box-shadow: 0 5px 18px var(--gold-glow),
-                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    box-shadow:
+        0 5px 18px var(--gold-glow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
     font-size: 13px;
     font-family: inherit;
     position: relative;
@@ -516,7 +586,12 @@ body.light .eyebrow {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
     transform: translateX(-100%);
     transition: transform 0.6s ease;
 }
@@ -1072,7 +1147,12 @@ body.light .prayer-item strong {
 }
 
 .countdown-card {
-    background: linear-gradient(135deg, var(--steel-dark), var(--steel), var(--sky-dark));
+    background: linear-gradient(
+        135deg,
+        var(--steel-dark),
+        var(--steel),
+        var(--sky-dark)
+    );
     border: 1.5px solid var(--sky);
     border-radius: 16px;
     padding: 16px 22px;
@@ -1095,7 +1175,11 @@ body.light .prayer-item strong {
     width: 220px;
     height: 220px;
     border-radius: 50%;
-    background: radial-gradient(circle, var(--gold-glow), transparent 70%);
+    background: radial-gradient(
+        circle,
+        var(--gold-glow),
+        transparent 70%
+    );
     right: -60px;
     top: -70px;
     pointer-events: none;
@@ -1123,9 +1207,6 @@ body.light .prayer-item strong {
     letter-spacing: -0.3px;
     text-shadow: 0 0 15px var(--gold-glow);
 }
-/* ============================================
-   الجزء 2/2
-   ============================================ */
 
 /* ============================================
    الأذكار
@@ -1163,7 +1244,11 @@ body.light .prayer-item strong {
 }
 
 .tab.active {
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    background: linear-gradient(
+        135deg,
+        var(--gold-dark),
+        var(--gold)
+    );
     color: var(--steel-dark);
     border-color: var(--gold-light);
     box-shadow: 0 6px 18px var(--gold-glow);
@@ -1198,7 +1283,11 @@ body.light .prayer-item strong {
     top: 0;
     bottom: 0;
     width: 3px;
-    background: linear-gradient(180deg, var(--sky), var(--gold));
+    background: linear-gradient(
+        180deg,
+        var(--sky),
+        var(--gold)
+    );
 }
 
 .zekr-card:hover {
@@ -1230,7 +1319,11 @@ body.light .prayer-item strong {
 }
 
 .zekr-button {
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    background: linear-gradient(
+        135deg,
+        var(--gold-dark),
+        var(--gold)
+    );
     border: 1px solid var(--gold-light);
     padding: 7px 16px;
     border-radius: 10px;
@@ -1348,7 +1441,11 @@ body.light .hadith-source {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--gold), var(--sky));
+    background: linear-gradient(
+        135deg,
+        var(--gold),
+        var(--sky)
+    );
     opacity: 0;
     transition: var(--transition);
     z-index: 0;
@@ -1423,7 +1520,11 @@ body.light .asma-card .asma-name {
 }
 
 .favorite-header {
-    background: linear-gradient(135deg, var(--steel-dark), var(--sky-dark));
+    background: linear-gradient(
+        135deg,
+        var(--steel-dark),
+        var(--sky-dark)
+    );
     color: #fff;
     padding: 22px 18px;
     text-align: center;
@@ -1446,7 +1547,11 @@ body.light .asma-card .asma-name {
 
 .favorite-header .surah-num {
     display: inline-block;
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    background: linear-gradient(
+        135deg,
+        var(--gold-dark),
+        var(--gold)
+    );
     border-radius: 50%;
     width: 38px;
     height: 38px;
@@ -1713,12 +1818,16 @@ body.light .calendar-card div:nth-child(2) strong {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.switch input:checked+span {
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+.switch input:checked + span {
+    background: linear-gradient(
+        135deg,
+        var(--gold-dark),
+        var(--gold)
+    );
     box-shadow: 0 0 16px var(--gold-glow);
 }
 
-.switch input:checked+span::after {
+.switch input:checked + span::after {
     right: 23px;
 }
 
@@ -1933,7 +2042,9 @@ body.light .page-navigation span {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* ============================================
@@ -1944,7 +2055,12 @@ body.light .page-navigation span {
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%) translateY(24px);
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+    background: linear-gradient(
+        135deg,
+        var(--gold-dark),
+        var(--gold),
+        var(--gold-light)
+    );
     color: var(--steel-dark);
     padding: 12px 22px;
     border-radius: 13px;
@@ -1966,6 +2082,65 @@ body.light .page-navigation span {
 }
 
 /* ============================================
+   أزرار التواصل الاجتماعي
+   Instagram + Facebook
+   ============================================ */
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+}
+
+.social-link {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid var(--border);
+    background: var(--card);
+    color: var(--gold);
+    text-decoration: none;
+    transition: var(--transition-bounce);
+    box-shadow: var(--shadow-soft);
+}
+
+.social-link svg {
+    width: 21px;
+    height: 21px;
+    display: block;
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    transform: translateY(-4px) scale(1.08);
+    border-color: var(--gold);
+    color: var(--gold-light);
+    background: var(--card-hover);
+    box-shadow: 0 8px 24px var(--gold-glow);
+}
+
+.social-link:active {
+    transform: translateY(-1px) scale(0.95);
+}
+
+.social-link.instagram:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+}
+
+.social-link.facebook:hover {
+    border-color: var(--sky);
+    color: var(--sky-light);
+    box-shadow: 0 8px 24px var(--sky-glow);
+}
+
+/* ============================================
    Responsive - Tablet
    ============================================ */
 @media (max-width: 992px) {
@@ -1973,22 +2148,28 @@ body.light .page-navigation span {
         grid-template-columns: 1fr;
         padding: 26px 24px;
     }
+
     .hero h1 {
         font-size: 26px;
     }
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .prayer-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .nav-btn {
         min-width: 95px;
         padding: 10px 18px;
     }
+
     .nav-label {
         font-size: 16px;
     }
+
     .main-nav {
         justify-content: flex-start;
     }
@@ -2002,93 +2183,139 @@ body.light .page-navigation span {
         height: 56px;
         padding: 0 14px;
     }
+
     .brand-mark {
         width: 36px;
         height: 36px;
         font-size: 18px;
     }
+
     .brand strong {
         font-size: 18px;
     }
+
     .brand small {
         font-size: 9px;
     }
+
     .main-nav {
         top: 56px;
         padding: 9px 14px;
         gap: 6px;
         justify-content: flex-start;
     }
+
     .nav-btn {
         min-width: 85px;
         padding: 9px 14px;
         border-radius: 11px;
     }
+
     .nav-label {
         font-size: 14px;
     }
+
     .app-shell {
         padding: 0 14px;
         margin: 14px auto;
     }
+
     .hero {
         padding: 20px 18px;
         border-radius: 18px;
     }
+
     .hero h1 {
         font-size: 22px;
     }
+
     .hero p {
         font-size: 12px;
     }
+
     .page-head {
         flex-direction: column;
         align-items: flex-start;
     }
+
     .page-head h2 {
         font-size: 20px;
     }
+
     .surah-list {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(
+            auto-fill,
+            minmax(200px, 1fr)
+        );
         gap: 8px;
     }
+
     .prayer-grid {
         grid-template-columns: 1fr;
     }
+
     .calendar-card {
         grid-template-columns: 1fr;
     }
+
     .quran-controls {
         grid-template-columns: 1fr;
     }
+
     .asma-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        grid-template-columns: repeat(
+            auto-fill,
+            minmax(120px, 1fr)
+        );
         gap: 10px;
     }
+
     .asma-card .asma-name {
         font-size: 19px;
     }
+
     .location-card {
         flex-direction: column;
         align-items: stretch;
     }
+
     .location-controls {
         flex-direction: column;
         align-items: stretch;
     }
+
     .location-controls .select-input,
     .city-input {
         width: 100%;
         min-width: auto;
     }
+
     .verse-text {
         font-size: 20px;
     }
+
     .zekr-text {
         font-size: 18px;
     }
+
     .hadith-text {
         font-size: 17px;
+    }
+
+    .social-links {
+        gap: 10px;
+        margin-top: 20px;
+        padding-top: 16px;
+    }
+
+    .social-link {
+        width: 42px;
+        height: 42px;
+    }
+
+    .social-link svg {
+        width: 20px;
+        height: 20px;
     }
 }
 
@@ -2100,249 +2327,326 @@ body.light .page-navigation span {
         height: 52px;
         padding: 0 10px;
     }
+
     .brand-mark {
         width: 34px;
         height: 34px;
         font-size: 16px;
         border-radius: 10px;
     }
+
     .brand strong {
         font-size: 16px;
     }
+
     .brand small {
         font-size: 8px;
     }
+
     .icon-btn {
         width: 36px;
         height: 36px;
         font-size: 16px;
         border-radius: 10px;
     }
+
     .main-nav {
         top: 52px;
         padding: 8px 10px;
         gap: 5px;
         justify-content: flex-start;
     }
+
     .nav-btn {
         min-width: 75px;
         padding: 8px 12px;
         border-radius: 10px;
     }
+
     .nav-label {
         font-size: 13px;
     }
+
     .app-shell {
         padding: 0 10px;
         margin: 12px auto;
     }
+
     .hero {
         padding: 18px 14px;
         border-radius: 16px;
     }
+
     .hero h1 {
         font-size: 19px;
         line-height: 1.35;
     }
+
     .hero p {
         font-size: 11px;
     }
+
     .hero::after {
         font-size: 110px;
         left: -20px;
         bottom: -30px;
     }
+
     .hero-actions {
         flex-direction: column;
     }
+
     .hero-actions button {
         width: 100%;
         padding: 9px 14px;
         font-size: 12px;
     }
+
     .next-card {
         padding: 14px;
     }
+
     .next-card strong {
         font-size: 15px;
     }
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
         margin-top: 12px;
     }
+
     .stat-card {
         padding: 13px 8px;
         border-radius: 13px;
     }
+
     .stat-card strong {
         font-size: 20px;
     }
+
     .stat-card small {
         font-size: 10px;
     }
+
     .page-head h2 {
         font-size: 17px;
     }
+
     .page-head p {
         font-size: 11px;
     }
+
     .secondary-btn-light {
         width: 100%;
         padding: 9px 14px;
         font-size: 12px;
     }
+
     .row-actions {
         display: flex;
         gap: 8px;
         width: 100%;
     }
+
     .row-actions button {
         flex: 1;
         padding: 9px 10px;
         font-size: 11px;
     }
+
     .surah-list {
         grid-template-columns: 1fr;
         gap: 8px;
     }
+
     .surah-row {
         padding: 10px 12px;
         border-radius: 12px;
         grid-template-columns: 30px 1fr;
         gap: 8px;
     }
+
     .surah-number {
         width: 28px;
         height: 28px;
         font-size: 11px;
         border-radius: 8px;
     }
+
     .surah-row strong {
         font-size: 13px;
     }
+
     .save-surah-btn {
         width: 42px;
         min-width: 42px;
         font-size: 18px;
         border-radius: 12px;
     }
+
     .prayer-item {
         padding: 12px 16px;
         border-radius: 12px;
     }
+
     .prayer-item span {
         font-size: 12px;
     }
+
     .prayer-item strong {
         font-size: 14px;
     }
+
     .countdown-card {
         padding: 14px 16px;
         border-radius: 14px;
         flex-direction: column;
         text-align: center;
     }
+
     .countdown-card strong {
         font-size: 15px;
     }
+
     .tab {
         padding: 7px 12px;
         font-size: 11px;
         border-radius: 9px;
     }
+
     .zekr-card {
         padding: 14px 16px;
         border-radius: 14px;
     }
+
     .zekr-text {
         font-size: 17px;
         line-height: 1.85;
     }
+
     .hadith-card {
         padding: 14px 16px;
         border-radius: 14px;
     }
+
     .hadith-text {
         font-size: 16px;
         line-height: 1.85;
     }
+
     .hadith-source {
         font-size: 11px;
     }
+
     .asma-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
     }
+
     .asma-card {
         padding: 13px 8px;
         border-radius: 13px;
     }
+
     .asma-card .asma-name {
         font-size: 17px;
     }
+
     .asma-card .asma-meaning {
         font-size: 9px;
     }
+
     .favorites-list {
         grid-template-columns: 1fr;
         gap: 12px;
     }
+
     .favorite-header .surah-name {
         font-size: 22px;
     }
+
     .calendar-card div {
         padding: 18px;
         border-radius: 14px;
     }
+
     .calendar-card div strong {
         font-size: 16px;
     }
+
     .setting-row {
         padding: 13px 16px;
         border-radius: 14px;
     }
+
     .setting-row strong {
         font-size: 12px;
     }
+
     .control-card {
         padding: 14px 16px;
         border-radius: 14px;
     }
+
     .verse-card {
         padding: 14px 16px;
         border-radius: 14px;
     }
+
     .verse-text {
         font-size: 19px;
         line-height: 2;
     }
+
     .verse-actions button {
         padding: 6px 10px;
         font-size: 11px;
     }
+
     .mushaf-page-container {
         padding: 8px;
         margin: 10px auto;
     }
+
     .page-navigation {
         flex-direction: column;
         gap: 10px;
     }
+
     .page-navigation button {
         width: 100%;
     }
+
     .toast {
         bottom: 18px;
         padding: 10px 16px;
         font-size: 11px;
     }
+
     .location-card {
         padding: 13px 16px;
         border-radius: 14px;
     }
+
     .location-info strong {
         font-size: 14px;
+    }
+
+    .social-links {
+        margin-top: 18px;
+        padding-top: 14px;
+        gap: 9px;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+    }
+
+    .social-link svg {
+        width: 19px;
+        height: 19px;
     }
 }
 
@@ -2354,14 +2658,31 @@ body.light .page-navigation span {
         min-width: 68px;
         padding: 7px 10px;
     }
+
     .nav-label {
         font-size: 12px;
     }
+
     .hero h1 {
         font-size: 17px;
     }
+
     .asma-grid {
         grid-template-columns: 1fr;
+    }
+
+    .top-actions {
+        gap: 5px;
+    }
+
+    .icon-btn {
+        width: 34px;
+        height: 34px;
+    }
+
+    .social-link {
+        width: 38px;
+        height: 38px;
     }
 }
 
@@ -2381,9 +2702,11 @@ body.light .page-navigation span {
     .secondary-btn-light:hover,
     .danger-btn:hover,
     .zekr-button:hover,
-    .verse-actions button:hover {
+    .verse-actions button:hover,
+    .social-link:hover {
         transform: none;
     }
+
     .nav-btn:active,
     .surah-row:active,
     .stat-card:active,
@@ -2394,7 +2717,8 @@ body.light .page-navigation span {
     .secondary-btn-light:active,
     .danger-btn:active,
     .zekr-button:active,
-    .verse-actions button:active {
+    .verse-actions button:active,
+    .social-link:active {
         transform: scale(0.96);
     }
 }
@@ -2413,12 +2737,19 @@ body.light .page-navigation span {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, var(--gold), var(--sky));
+    background: linear-gradient(
+        180deg,
+        var(--gold),
+        var(--sky)
+    );
     border-radius: 8px;
     border: 2px solid var(--bg);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, var(--gold-light), var(--sky-light));
+    background: linear-gradient(
+        180deg,
+        var(--gold-light),
+        var(--sky-light)
+    );
 }
-#installAppBtn[hidden] { display: none !important; }
