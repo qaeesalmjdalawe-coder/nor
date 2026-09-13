@@ -214,6 +214,64 @@ body.light .brand strong {
     gap: 8px;
 }
 
+/* زر Download المخصص */
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+    border: 1px solid var(--gold-light);
+    color: var(--steel-dark);
+    padding: 0 16px;
+    height: 40px;
+    border-radius: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: var(--transition-bounce);
+    font-size: 13px;
+    font-family: inherit;
+    box-shadow: 0 5px 16px var(--gold-glow),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+}
+
+.download-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.7s ease;
+}
+
+.download-btn:hover::before {
+    transform: translateX(100%);
+}
+
+.download-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 26px var(--gold-glow),
+                inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.download-btn:active {
+    transform: translateY(0) scale(0.97);
+}
+
+.download-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.download-btn.installed {
+    display: none !important;
+}
+
 .icon-btn {
     width: 40px;
     height: 40px;
@@ -248,29 +306,11 @@ body.light .brand strong {
     transition: var(--transition);
 }
 
-#notificationBtnTop,
-#installAppBtn {
-    display: grid;
-    place-items: center;
-}
-
-#notificationBtnTop svg,
-#installAppBtn svg {
-    width: 19px;
-    height: 19px;
-}
-
 #notificationBtnTop.notif-active {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px var(--gold-glow);
-}
-
-#installAppBtn {
-    color: var(--gold);
-}
-
-#installAppBtn[hidden] {
-    display: none !important;
+    background: var(--gold);
+    border-color: var(--gold-light);
+    color: var(--steel-dark);
+    box-shadow: 0 6px 18px var(--gold-glow);
 }
 
 .icon-moon {
@@ -1207,6 +1247,9 @@ body.light .prayer-item strong {
     letter-spacing: -0.3px;
     text-shadow: 0 0 15px var(--gold-glow);
 }
+/* ============================================
+   الجزء 2/2
+   ============================================ */
 
 /* ============================================
    الأذكار
@@ -1244,11 +1287,7 @@ body.light .prayer-item strong {
 }
 
 .tab.active {
-    background: linear-gradient(
-        135deg,
-        var(--gold-dark),
-        var(--gold)
-    );
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
     color: var(--steel-dark);
     border-color: var(--gold-light);
     box-shadow: 0 6px 18px var(--gold-glow);
@@ -1283,11 +1322,7 @@ body.light .prayer-item strong {
     top: 0;
     bottom: 0;
     width: 3px;
-    background: linear-gradient(
-        180deg,
-        var(--sky),
-        var(--gold)
-    );
+    background: linear-gradient(180deg, var(--sky), var(--gold));
 }
 
 .zekr-card:hover {
@@ -1319,11 +1354,7 @@ body.light .prayer-item strong {
 }
 
 .zekr-button {
-    background: linear-gradient(
-        135deg,
-        var(--gold-dark),
-        var(--gold)
-    );
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
     border: 1px solid var(--gold-light);
     padding: 7px 16px;
     border-radius: 10px;
@@ -1441,11 +1472,7 @@ body.light .hadith-source {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        135deg,
-        var(--gold),
-        var(--sky)
-    );
+    background: linear-gradient(135deg, var(--gold), var(--sky));
     opacity: 0;
     transition: var(--transition);
     z-index: 0;
@@ -1520,11 +1547,7 @@ body.light .asma-card .asma-name {
 }
 
 .favorite-header {
-    background: linear-gradient(
-        135deg,
-        var(--steel-dark),
-        var(--sky-dark)
-    );
+    background: linear-gradient(135deg, var(--steel-dark), var(--sky-dark));
     color: #fff;
     padding: 22px 18px;
     text-align: center;
@@ -1547,11 +1570,7 @@ body.light .asma-card .asma-name {
 
 .favorite-header .surah-num {
     display: inline-block;
-    background: linear-gradient(
-        135deg,
-        var(--gold-dark),
-        var(--gold)
-    );
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
     border-radius: 50%;
     width: 38px;
     height: 38px;
@@ -1819,11 +1838,7 @@ body.light .calendar-card div:nth-child(2) strong {
 }
 
 .switch input:checked + span {
-    background: linear-gradient(
-        135deg,
-        var(--gold-dark),
-        var(--gold)
-    );
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
     box-shadow: 0 0 16px var(--gold-glow);
 }
 
@@ -2083,7 +2098,6 @@ body.light .page-navigation span {
 
 /* ============================================
    أزرار التواصل الاجتماعي
-   Instagram + Facebook
    ============================================ */
 .social-links {
     display: flex;
@@ -2127,11 +2141,6 @@ body.light .page-navigation span {
 
 .social-link:active {
     transform: translateY(-1px) scale(0.95);
-}
-
-.social-link.instagram:hover {
-    border-color: var(--gold);
-    color: var(--gold-light);
 }
 
 .social-link.facebook:hover {
@@ -2243,10 +2252,7 @@ body.light .page-navigation span {
     }
 
     .surah-list {
-        grid-template-columns: repeat(
-            auto-fill,
-            minmax(200px, 1fr)
-        );
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 8px;
     }
 
@@ -2263,10 +2269,7 @@ body.light .page-navigation span {
     }
 
     .asma-grid {
-        grid-template-columns: repeat(
-            auto-fill,
-            minmax(120px, 1fr)
-        );
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         gap: 10px;
     }
 
@@ -2348,6 +2351,20 @@ body.light .page-navigation span {
         height: 36px;
         font-size: 16px;
         border-radius: 10px;
+    }
+
+    /* زر Download على الجوال - يبقى يظهر النص */
+    .download-btn {
+        padding: 0 12px;
+        height: 36px;
+        font-size: 12px;
+        gap: 5px;
+        border-radius: 10px;
+    }
+
+    .download-btn svg {
+        width: 14px;
+        height: 14px;
     }
 
     .main-nav {
@@ -2680,6 +2697,20 @@ body.light .page-navigation span {
         height: 34px;
     }
 
+    /* زر Download - أصغر شوي */
+    .download-btn {
+        padding: 0 10px;
+        height: 34px;
+        font-size: 11px;
+        gap: 4px;
+        border-radius: 9px;
+    }
+
+    .download-btn svg {
+        width: 13px;
+        height: 13px;
+    }
+
     .social-link {
         width: 38px;
         height: 38px;
@@ -2703,7 +2734,8 @@ body.light .page-navigation span {
     .danger-btn:hover,
     .zekr-button:hover,
     .verse-actions button:hover,
-    .social-link:hover {
+    .social-link:hover,
+    .download-btn:hover {
         transform: none;
     }
 
@@ -2718,7 +2750,8 @@ body.light .page-navigation span {
     .danger-btn:active,
     .zekr-button:active,
     .verse-actions button:active,
-    .social-link:active {
+    .social-link:active,
+    .download-btn:active {
         transform: scale(0.96);
     }
 }
@@ -2737,19 +2770,11 @@ body.light .page-navigation span {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(
-        180deg,
-        var(--gold),
-        var(--sky)
-    );
+    background: linear-gradient(180deg, var(--gold), var(--sky));
     border-radius: 8px;
     border: 2px solid var(--bg);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(
-        180deg,
-        var(--gold-light),
-        var(--sky-light)
-    );
+    background: linear-gradient(180deg, var(--gold-light), var(--sky-light));
 }
