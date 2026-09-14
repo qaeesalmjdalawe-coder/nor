@@ -2032,6 +2032,128 @@ body.light .page-navigation span {
     color: var(--gold-dark);
 }
 
+
+/* ============================================
+   التحكم بالأذان
+   ============================================ */
+.adhan-control-card {
+    margin-top: 14px;
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 20px;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+}
+
+.adhan-control-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 8px 28px var(--gold-glow);
+}
+
+.adhan-control-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.adhan-control-header strong {
+    display: block;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.adhan-control-header small {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.adhan-control-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.adhan-control-buttons button {
+    min-height: 38px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1.5px solid var(--border);
+    background: var(--card-hover);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: var(--transition-bounce);
+}
+
+.adhan-control-buttons button:hover {
+    transform: translateY(-2px);
+    border-color: var(--gold);
+    background: var(--gold);
+    color: var(--steel-dark);
+    box-shadow: 0 6px 18px var(--gold-glow);
+}
+
+.adhan-control-buttons button:active {
+    transform: scale(.97);
+}
+
+#stopAdhanBtn {
+    border-color: rgba(139, 58, 58, .7);
+    color: #c97878;
+}
+
+#stopAdhanBtn:hover {
+    background: #8b3a3a;
+    border-color: #a84848;
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(139, 58, 58, .3);
+}
+
+.adhan-note {
+    display: block;
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .adhan-control-card {
+        padding: 14px 16px;
+        border-radius: 14px;
+    }
+
+    .adhan-control-header {
+        align-items: flex-start;
+    }
+
+    .adhan-control-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .adhan-control-buttons button {
+        width: 100%;
+        min-height: 40px;
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .adhan-note {
+        font-size: 10px;
+    }
+}
+
 /* ============================================
    Loading
    ============================================ */
