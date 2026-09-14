@@ -2778,3 +2778,180 @@ body.light .page-navigation span {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, var(--gold-light), var(--sky-light));
 }
+
+/* ============================================
+   قائمة الأقسام على الهاتف فقط
+   لا تغيّر شكل الموقع على الكمبيوتر
+   ============================================ */
+.mobile-menu-toggle {
+    display: none;
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--card);
+    color: var(--text);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    transition: var(--transition);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 19px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform .25s ease, opacity .2s ease;
+}
+
+.mobile-menu-toggle:active {
+    transform: scale(.94);
+}
+
+.mobile-menu-toggle.is-open {
+    border-color: var(--gold);
+    color: var(--gold-light);
+    box-shadow: 0 6px 18px var(--gold-glow);
+}
+
+.mobile-menu-toggle.is-open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-menu-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.is-open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* منع خروج أي جزء من الموقع عن عرض شاشة الهاتف */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+    .topbar {
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: max(10px, env(safe-area-inset-left));
+        padding-right: max(10px, env(safe-area-inset-right));
+    }
+
+    .mobile-menu-toggle {
+        display: inline-flex;
+    }
+
+    /* إخفاء شريط الأقسام وتحويله إلى قائمة من زر ☰ */
+    .main-nav {
+        display: flex;
+        position: fixed;
+        top: 56px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+        max-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 7px;
+        padding: 0 10px;
+        border: 1px solid transparent;
+        border-radius: 16px;
+        box-shadow: 0 14px 35px rgba(0,0,0,.28);
+        transform: translateY(-8px);
+        transition: max-height .28s ease, opacity .2s ease,
+                    transform .28s ease, padding .28s ease,
+                    border-color .2s ease, visibility .2s ease;
+        box-sizing: border-box;
+        z-index: 999;
+    }
+
+    .main-nav.mobile-open {
+        max-height: calc(100dvh - 72px);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        overflow-y: auto;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+        border-color: var(--border);
+    }
+
+    .main-nav .nav-btn {
+        width: 100%;
+        min-width: 0;
+        flex: 0 0 auto;
+        box-sizing: border-box;
+        justify-content: center;
+        padding: 11px 14px;
+        min-height: 44px;
+    }
+
+    .main-nav .nav-label {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar {
+        height: 52px;
+    }
+
+    .mobile-menu-toggle {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+    }
+
+    .mobile-menu-toggle span {
+        width: 17px;
+    }
+
+    .main-nav {
+        top: 52px;
+        right: 8px;
+        left: 8px;
+        border-radius: 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    .topbar {
+        padding-left: max(7px, env(safe-area-inset-left));
+        padding-right: max(7px, env(safe-area-inset-right));
+    }
+
+    .mobile-menu-toggle {
+        width: 34px;
+        height: 34px;
+    }
+
+    .top-actions {
+        gap: 4px;
+    }
+}
+
+/* شاشات اللمس: بدون تأثيرات hover مزعجة */
+@media (hover: none) and (pointer: coarse) {
+    .mobile-menu-toggle:hover {
+        transform: none;
+        background: var(--card);
+    }
+}
