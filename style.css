@@ -60,40 +60,40 @@
 
 body.light {
     --gold: #b8942c;
-    --gold-light: #d4b055;
-    --gold-dark: #8a6f1f;
-    --gold-glow: rgba(184, 148, 44, 0.25);
-    --gold-glow-soft: rgba(184, 148, 44, 0.12);
+    --gold-light: #d0aa4c;
+    --gold-dark: #80671c;
+    --gold-glow: rgba(184, 148, 44, 0.22);
+    --gold-glow-soft: rgba(184, 148, 44, 0.10);
 
-    --sky: #5b7fa8;
-    --sky-light: #7b9fc5;
-    --sky-dark: #436687;
-    --sky-glow: rgba(91, 127, 168, 0.25);
+    --sky: #587a9d;
+    --sky-light: #7899b8;
+    --sky-dark: #405f7d;
+    --sky-glow: rgba(88, 122, 157, 0.20);
 
     --steel: #3d4452;
     --steel-light: #555d6e;
     --steel-dark: #2a3038;
 
-    --bg: #f5f7fa;
+    --bg: #e9edf2;
     --bg-gradient:
         radial-gradient(circle at 15% 10%, rgba(184, 148, 44, 0.05) 0%, transparent 45%),
         radial-gradient(circle at 85% 90%, rgba(91, 127, 168, 0.05) 0%, transparent 45%),
-        linear-gradient(180deg, #f5f7fa 0%, #eef1f6 100%);
-    --card: #ffffff;
-    --card-hover: #fafbfc;
-    --card-elevated: #ffffff;
+        linear-gradient(180deg, #e9edf2 0%, #dfe5ec 100%);
+    --card: #f1f3f6;
+    --card-hover: #e8ecf1;
+    --card-elevated: #f4f6f8;
 
-    --text: #2a3142;
-    --text-light: #4a5568;
-    --muted: #7a8394;
-    --muted-dark: #a0a8b5;
+    --text: #252b35;
+    --text-light: #46505e;
+    --muted: #687383;
+    --muted-dark: #8b95a3;
 
-    --border: #dde3ea;
-    --border-light: #c9d1dc;
+    --border: #cbd3dd;
+    --border-light: #b9c3cf;
 
-    --shadow: 0 4px 16px rgba(42, 49, 66, 0.06);
-    --shadow-hover: 0 10px 32px rgba(42, 49, 66, 0.1);
-    --shadow-soft: 0 2px 10px rgba(42, 49, 66, 0.05);
+    --shadow: 0 4px 16px rgba(42, 49, 66, 0.10);
+    --shadow-hover: 0 10px 28px rgba(42, 49, 66, 0.14);
+    --shadow-soft: 0 2px 10px rgba(42, 49, 66, 0.08);
 }
 
 /* ===== إعادة الضبط ===== */
@@ -142,7 +142,7 @@ body {
 }
 
 body.light .topbar {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(231, 235, 240, 0.96);
 }
 
 .brand {
@@ -351,7 +351,7 @@ body.light .icon-sun {
 }
 
 body.light .main-nav {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(231, 235, 240, 0.88);
 }
 
 .main-nav::-webkit-scrollbar {
