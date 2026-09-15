@@ -1,8 +1,0 @@
-[{
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "com.noor.quran",
-        "sha256_cert_fingerprints": ["1B:69:7B:F3:80:48:A0:A4:F6:09:BB:27:3B:58:CA:4B:F5:24:B4:8A:91:F4:62:AA:A0:86:F1:4E:8E:E3:4A:A3"]
-      }
-    }]
