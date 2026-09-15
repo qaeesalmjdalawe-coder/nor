@@ -1,75 +1,69 @@
 // ============================================
-// نور | Service Worker
+// نور | Service Worker - العمل بدون إنترنت
 // ============================================
 
-const CACHE_NAME = "noor-cache-v3";
-
+const CACHE_NAME = 'noor-cache-v4';
 const URLS_TO_CACHE = [
-    "./",
-    "./index.html",
-    "./style.css",
-    "./app.js",
-    "./manifest.json",
-    "./icons/icon-192.png",
-    "./icons/icon-512.png"
+    './',
+    './index.html',
+    './style.css',
+    './app.js',
+    './manifest.json',
+    './icon-192.png',
+    './icon-512.png',
+    './adhan.mp3',
+    './adhan-fajr.mp3'
 ];
 
 // ===== التثبيت =====
-self.addEventListener("install", (event) => {
+self.addEventListener('install', (event) => {
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then((cache) => cache.addAll(URLS_TO_CACHE))
-            .catch((error) => {
-                console.error("Service Worker install error:", error);
-            })
+        caches.open(CACHE_NAME).then((cache) => {
+            return cache.addAll(URLS_TO_CACHE).catch(() => {});
+        })
     );
-
     self.skipWaiting();
 });
 
 // ===== التنشيط =====
-self.addEventListener("activate", (event) => {
+self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((keys) => {
             return Promise.all(
-                keys
-                    .filter((key) => key !== CACHE_NAME)
+                keys.filter((key) => key !== CACHE_NAME)
                     .map((key) => caches.delete(key))
             );
         })
     );
-
     self.clients.claim();
 });
 
 // ===== الجلب =====
-self.addEventListener("fetch", (event) => {
-    if (event.request.method !== "GET") {
+self.addEventListener('fetch', (event) => {
+    if (event.request.method !== 'GET') return;
+    
+    // الصفحة الرئيسية: من الشبكة أولاً، ثم الكاش
+    if (event.request.mode === 'navigate') {
+        event.respondWith(
+            fetch(event.request).catch(() => caches.match('./index.html'))
+        );
         return;
     }
-
+    
+    // باقي الملفات: من الكاش أولاً، ثم الشبكة
     event.respondWith(
-        fetch(event.request)
-            .then((response) => {
-
-                if (
-                    response &&
-                    response.status === 200 &&
-                    response.type === "basic"
-                ) {
-                    const responseClone = response.clone();
-
+        caches.match(event.request).then((cached) => {
+            const fetchPromise = fetch(event.request).then((response) => {
+                if (response && response.status === 200 && response.type === 'basic') {
+                    const clone = response.clone();
                     caches.open(CACHE_NAME).then((cache) => {
-                        cache.put(event.request, responseClone);
+                        cache.put(event.request, clone);
                     });
                 }
-
                 return response;
-            })
-            .catch(() => {
-                return caches.match(event.request).then((cached) => {
-                    return cached || caches.match("./index.html");
-                });
-            })
+            }).catch(() => cached);
+            
+            return cached || fetchPromise;
+        })
     );
 });
