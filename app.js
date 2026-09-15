@@ -1079,6 +1079,28 @@ function setupAdhanToggle() {
     }
 }
 
+// ✅ دالة جديدة: ربط أزرار تجربة الأذان
+function setupAdhanTestButtons() {
+    const testNormal = document.getElementById("testAdhanNormal");
+    const testFajr = document.getElementById("testAdhanFajr");
+    
+    if (testNormal) {
+        testNormal.onclick = () => {
+            adhanPlayedFor = {};       // إعادة تعيين لتشغيل الأذان مباشرة
+            state.adhanEnabled = true;  // تأكيد تفعيل الأذان
+            playAdhan("الظهر");
+        };
+    }
+    
+    if (testFajr) {
+        testFajr.onclick = () => {
+            adhanPlayedFor = {};
+            state.adhanEnabled = true;
+            playAdhan("الفجر");
+        };
+    }
+}
+
 // ============================================
 // ===== التهيئة عند التحميل =====
 // ============================================
@@ -1102,6 +1124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupNotificationButton();
     initAdhan();
     setupAdhanToggle();
+    setupAdhanTestButtons();   // ✅ ربط أزرار تجربة الأذان
     
     const quranSearch = $("quranSearch");
     if (quranSearch) {
