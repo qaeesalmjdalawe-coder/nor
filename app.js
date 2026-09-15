@@ -817,83 +817,6 @@ window.changeMushafPage = function(direction) {
 };
 
 // ============================================
-// ===== تثبيت الموقع كتطبيق على سطح المكتب =====
-// ============================================
-let deferredInstallPrompt = null;
-
-function isInstalledApp() {
-    return window.matchMedia('(display-mode: standalone)').matches ||
-           window.matchMedia('(display-mode: window-controls-overlay)').matches ||
-           window.navigator.standalone === true;
-}
-
-function setInstallVisible(visible) {
-    const btn = $('installAppBtn');
-    if (!btn) return;
-    if (isInstalledApp() || localStorage.getItem('noor_app_installed') === '1') {
-        btn.hidden = true;
-        btn.style.display = 'none';
-        return;
-    }
-    btn.hidden = !visible;
-    btn.style.display = visible ? 'inline-flex' : 'none';
-}
-
-function setupInstallButton() {
-    const btn = $('installAppBtn');
-    if (!btn) return;
-
-    setInstallVisible(true);
-
-    btn.onclick = async () => {
-        if (isInstalledApp()) {
-            btn.hidden = true;
-            btn.style.display = 'none';
-            return;
-        }
-
-        if (deferredInstallPrompt) {
-            try {
-                deferredInstallPrompt.prompt();
-                const choice = await deferredInstallPrompt.userChoice;
-                deferredInstallPrompt = null;
-                if (choice && choice.outcome === 'accepted') {
-                    localStorage.setItem('noor_app_installed', '1');
-                    btn.hidden = true;
-                    btn.style.display = 'none';
-                    toast('✅ تم تثبيت نور على سطح المكتب');
-                }
-            } catch (e) {
-                toast('⚠️ تعذر فتح نافذة التثبيت. جرّب تحديث الصفحة.');
-            }
-            return;
-        }
-
-        if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
-            toast('🔒 يجب فتح الموقع عبر HTTPS حتى يظهر تثبيت نور كتطبيق.');
-        } else {
-            toast('💻 انتظر لحظة حتى يجهّز Chrome التثبيت، ثم اضغط الزر مرة أخرى.');
-        }
-    };
-}
-
-window.addEventListener('beforeinstallprompt', (event) => {
-    event.preventDefault();
-    deferredInstallPrompt = event;
-    setInstallVisible(true);
-});
-
-window.addEventListener('appinstalled', () => {
-    deferredInstallPrompt = null;
-    localStorage.setItem('noor_app_installed', '1');
-    const btn = $('installAppBtn');
-    if (btn) { btn.hidden = true; btn.style.display = 'none'; }
-    toast('🎉 تم تثبيت نور على سطح المكتب بنجاح!');
-});
-
-window.addEventListener('pageshow', () => setInstallVisible(true));
-
-// ============================================
 // ===== الإشعارات =====
 // ============================================
 async function requestNotifications() {
@@ -1005,11 +928,9 @@ function playAdhan(prayerName) {
     const key = `${prayerName}-${today}`;
     if (adhanPlayedFor[key]) return;
 
-    // ✅ اختيار ملف الأذان المناسب حسب الصلاة
     const isFajr = (prayerName === 'الفجر');
     const adhanFile = isFajr ? 'adhan-fajr.mp3' : 'adhan.mp3';
 
-    // تحديث مصدر الصوت حسب الصلاة
     if (adhanAudio.src.indexOf(adhanFile) === -1) {
         adhanAudio.src = adhanFile;
         adhanAudio.load();
@@ -1079,15 +1000,15 @@ function setupAdhanToggle() {
     }
 }
 
-// ✅ دالة جديدة: ربط أزرار تجربة الأذان
+// ✅ دالة ربط أزرار تجربة الأذان
 function setupAdhanTestButtons() {
     const testNormal = document.getElementById("testAdhanNormal");
     const testFajr = document.getElementById("testAdhanFajr");
     
     if (testNormal) {
         testNormal.onclick = () => {
-            adhanPlayedFor = {};       // إعادة تعيين لتشغيل الأذان مباشرة
-            state.adhanEnabled = true;  // تأكيد تفعيل الأذان
+            adhanPlayedFor = {};
+            state.adhanEnabled = true;
             playAdhan("الظهر");
         };
     }
@@ -1120,11 +1041,10 @@ document.addEventListener("DOMContentLoaded", () => {
     updateFavCount();
     renderFavorites();
     
-    setupInstallButton();
     setupNotificationButton();
     initAdhan();
     setupAdhanToggle();
-    setupAdhanTestButtons();   // ✅ ربط أزرار تجربة الأذان
+    setupAdhanTestButtons();
     
     const quranSearch = $("quranSearch");
     if (quranSearch) {
